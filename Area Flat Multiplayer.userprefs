@@ -1,0 +1,23 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Scripts\Weapon Controllers\ProjectileBase.cs">
+    <Files>
+      <File FileName="Assets\_Scripts\Player Controllers\PlayerBase.cs" Line="16" Column="23" />
+      <File FileName="Assets\_Scripts\Weapon Controllers\ProjectileBase.cs" Line="25" Column="25" />
+      <File FileName="Assets\_Scripts\General\HUDCanvasPropertys.cs" Line="28" Column="5" />
+      <File FileName="Assets\_Scripts\Player Controllers\ShootOnAxisInput.cs" Line="103" Column="114" />
+      <File FileName="Assets\_Scripts\Player Controllers\MoveOnAxisInput.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Scripts\Player Controllers\NetworkPlayer.cs" Line="54" Column="35" />
+      <File FileName="Assets\_Scripts\Weapon Controllers\ProjectileLaser.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Scripts\Player Controllers\Player.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Scripts\Network Controllers\NetworkManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Scripts\Network Controllers\NetworkLobby.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Scripts\Network Controllers\NetworkStart.cs" Line="1" Column="1" />
+      <File FileName="Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs" Line="2338" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

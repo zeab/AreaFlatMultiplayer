@@ -1,0 +1,150 @@
+-debug
+-target:library
+-nowarn:0169
+-out:Temp/Assembly-CSharp.dll
+-r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll"
+-r:Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll"
+-r:Assets/Plugins/Photon3Unity3D.dll
+-r:Assets/Plugins/WebSocket/websocket-sharp.dll
+-r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll"
+-r:"C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll"
+-define:UNITY_5_1_1
+-define:UNITY_5_1
+-define:UNITY_5
+-define:ENABLE_NEW_BUGREPORTER
+-define:ENABLE_2D_PHYSICS
+-define:ENABLE_4_6_FEATURES
+-define:ENABLE_AUDIO
+-define:ENABLE_CACHING
+-define:ENABLE_CLOTH
+-define:ENABLE_DUCK_TYPING
+-define:ENABLE_FRAME_DEBUGGER
+-define:ENABLE_GENERICS
+-define:ENABLE_HOME_SCREEN
+-define:ENABLE_IMAGEEFFECTS
+-define:ENABLE_LIGHT_PROBES_LEGACY
+-define:ENABLE_MICROPHONE
+-define:ENABLE_MULTIPLE_DISPLAYS
+-define:ENABLE_PHYSICS
+-define:ENABLE_PHYSICS_PHYSX3
+-define:ENABLE_PLUGIN_INSPECTOR
+-define:ENABLE_SHADOWS
+-define:ENABLE_SINGLE_INSTANCE_BUILD_SETTING
+-define:ENABLE_SPRITES
+-define:ENABLE_TERRAIN
+-define:ENABLE_UNET
+-define:ENABLE_UNITYEVENTS
+-define:ENABLE_WEBCAM
+-define:ENABLE_WWW
+-define:ENABLE_CLOUD_SERVICES
+-define:ENABLE_CLOUD_SERVICES_ANALYTICS
+-define:ENABLE_CLOUD_SERVICES_UNET
+-define:ENABLE_CLOUD_LICENSE
+-define:ENABLE_AUDIOMIXER_SUSPEND
+-define:ENABLE_EDITOR_METRICS
+-define:INCLUDE_DYNAMIC_GI
+-define:INCLUDE_GI
+-define:INCLUDE_IL2CPP
+-define:INCLUDE_DIRECTX12
+-define:PLATFORM_SUPPORTS_MONO
+-define:RENDER_SOFTWARE_CURSOR
+-define:ENABLE_LOCALIZATION
+-define:UNITY_WEBPLAYER
+-define:ENABLE_SUBSTANCE
+-define:WEBPLUG
+-define:ENABLE_TEXTUREID_MAP
+-define:ENABLE_RUNTIME_GI
+-define:ENABLE_MOVIES
+-define:ENABLE_NETWORK
+-define:ENABLE_CRUNCH_TEXTURE_COMPRESSION
+-define:ENABLE_MONO
+-define:ENABLE_PROFILER
+-define:DEBUG
+-define:TRACE
+-define:UNITY_ASSERTIONS
+-define:UNITY_EDITOR
+-define:UNITY_EDITOR_64
+-define:UNITY_EDITOR_WIN
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/CustomTypes.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/Enums.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/Extensions.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/FriendInfo.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/GizmoType.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/LoadbalancingPeer.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonClasses.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonHandler.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonLagSimulationGui.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonNetwork.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonPlayer.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonStatsGui.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonStreamQueue.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonView.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/PingCloudRegions.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/RPC.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/Room.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/RoomInfo.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/RpcIndexComponent.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/ServerSettings.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/SocketUdp.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/SocketWebTcp.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonAnimatorView.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonRigidbody2DView.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonRigidbodyView.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformView.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformViewPositionControl.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformViewPositionModel.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformViewRotationControl.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformViewRotationModel.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformViewScaleControl.cs"
+"Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformViewScaleModel.cs"
+"Assets/Photon Unity Networking/UtilityScripts/ConnectAndJoinRandom.cs"
+"Assets/Photon Unity Networking/UtilityScripts/HighlightOwnedGameObj.cs"
+"Assets/Photon Unity Networking/UtilityScripts/InRoomChat.cs"
+"Assets/Photon Unity Networking/UtilityScripts/InRoomRoundTimer.cs"
+"Assets/Photon Unity Networking/UtilityScripts/InputToEvent.cs"
+"Assets/Photon Unity Networking/UtilityScripts/ManualPhotonViewAllocator.cs"
+"Assets/Photon Unity Networking/UtilityScripts/MoveByKeys.cs"
+"Assets/Photon Unity Networking/UtilityScripts/OnAwakeUsePhotonView.cs"
+"Assets/Photon Unity Networking/UtilityScripts/OnClickDestroy.cs"
+"Assets/Photon Unity Networking/UtilityScripts/OnClickInstantiate.cs"
+"Assets/Photon Unity Networking/UtilityScripts/OnClickLoadSomething.cs"
+"Assets/Photon Unity Networking/UtilityScripts/OnJoinedInstantiate.cs"
+"Assets/Photon Unity Networking/UtilityScripts/OnStartDelete.cs"
+"Assets/Photon Unity Networking/UtilityScripts/PickupItem.cs"
+"Assets/Photon Unity Networking/UtilityScripts/PickupItemSimple.cs"
+"Assets/Photon Unity Networking/UtilityScripts/PickupItemSyncer.cs"
+"Assets/Photon Unity Networking/UtilityScripts/PointedAtGameObjectInfo.cs"
+"Assets/Photon Unity Networking/UtilityScripts/PunPlayerScores.cs"
+"Assets/Photon Unity Networking/UtilityScripts/PunTeams.cs"
+"Assets/Photon Unity Networking/UtilityScripts/QuitOnEscapeOrBack.cs"
+"Assets/Photon Unity Networking/UtilityScripts/ServerTime.cs"
+"Assets/Photon Unity Networking/UtilityScripts/ShowInfoOfPlayer.cs"
+"Assets/Photon Unity Networking/UtilityScripts/ShowStatusWhenConnecting.cs"
+"Assets/Photon Unity Networking/UtilityScripts/SmoothSyncMovement.cs"
+"Assets/Photon Unity Networking/UtilityScripts/SupportLogger.cs"
+"Assets/Photon Unity Networking/UtilityScripts/TimeKeeper.cs"
+"Assets/_Scripts/Enemy Controllers/EnemyMover.cs"
+"Assets/_Scripts/Game Controllers/GamemodeBase.cs"
+"Assets/_Scripts/Game Controllers/GamemodeDeathmatch.cs"
+"Assets/_Scripts/Game Controllers/GamemodeManager.cs"
+Assets/_Scripts/General/HUDCanvasPropertys.cs
+Assets/_Scripts/General/Helper.cs
+Assets/_Scripts/General/RoomProperty.cs
+Assets/_Scripts/General/SpawnSpot.cs
+Assets/_Scripts/General/loginFieldProperty.cs
+Assets/_Scripts/General/test.cs
+"Assets/_Scripts/Network Controllers/NetworkLobby.cs"
+"Assets/_Scripts/Network Controllers/NetworkManager.cs"
+"Assets/_Scripts/Network Controllers/NetworkPlayer.cs"
+"Assets/_Scripts/Network Controllers/NetworkStart.cs"
+"Assets/_Scripts/Player Controllers/MoveOnAxisInput.cs"
+"Assets/_Scripts/Player Controllers/Player.cs"
+"Assets/_Scripts/Player Controllers/PlayerBase.cs"
+"Assets/_Scripts/Player Controllers/ShootOnAxisInput.cs"
+"Assets/_Scripts/Weapon Controllers/ProjectileBase.cs"
+"Assets/_Scripts/Weapon Controllers/ProjectileLaser.cs"
+"Assets/_Scripts/Weapon Controllers/WeaponMover.cs"
