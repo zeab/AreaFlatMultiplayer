@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Scripts\General\HUDCanvasPropertys.cs">
+    <Files>
+      <File FileName="Assets\_Scripts\Player Controllers\NetworkPlayer.cs" Line="49" Column="45" />
+      <File FileName="Assets\_Scripts\Player Controllers\ShootOnAxisInput.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Scripts\General\HUDCanvasPropertys.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

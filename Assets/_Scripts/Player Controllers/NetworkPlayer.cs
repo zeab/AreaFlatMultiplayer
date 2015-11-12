@@ -1,10 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class NetworkPlayer : PlayerBase {
 
 	//sets the death explosion prefab
 	public GameObject ExplosionPrefab;
+
+	public Slider m_HealthSlider; 
+	public Image m_FillHealthSlider;
+
+	public Slider m_WeaponSlider;
+	public Image m_FillWeaponSlider;
+
+	public Color m_FullHealthColor = Color.green;
+	public Color m_ZeroHealthColor = Color.red;
+
+	public Text m_PlayerName;
 
 	bool isAlive = true;
 	Vector3 position;
@@ -34,7 +46,9 @@ public class NetworkPlayer : PlayerBase {
 		//playerID = GetComponentInParent<Player> ().GetComponent<PhotonView>().viewID;
 		playerID = PhotonView.viewID;
 		m_Health = MaxHealth;
-
+		m_PlayerName.text = PhotonView.owner.name;
+		
+		//Health = GetComponent<
 
 
 		//Debug.Log (playerID);
@@ -54,7 +68,9 @@ public class NetworkPlayer : PlayerBase {
 
 	void Update()
 	{
-		Debug.Log ("HP of " + PhotonView.owner + " is " + Health);
+		//Debug.Log ("HP of " + PhotonView.owner + " is " + Health);
+		SetHealthUI ();
+				
 	}
 
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -107,10 +123,27 @@ public class NetworkPlayer : PlayerBase {
 	public void DealDamage( float damage )
 	{
 		m_Health -= damage;
+
+
 		//Debug.Log (m_Health);
 
 		//Debug.Log ("HP of " + GetComponent<PhotonView>().owner + " is " + Health);
 		//OnHealthChanged( damageDealer );
 	}
+
+	private void SetHealthUI()
+	{
+		m_HealthSlider.value = Health;
+		m_FillHealthSlider.color = Color.Lerp (m_ZeroHealthColor, m_FullHealthColor, Health / MaxHealth);
+		//Debug.Log (Color.green);
+	}
+
+
+
+
+
+
+
+
 
 }
