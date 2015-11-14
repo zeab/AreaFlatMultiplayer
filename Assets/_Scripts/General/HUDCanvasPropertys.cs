@@ -56,7 +56,10 @@ public class HUDCanvasPropertys : PlayerBase {
 //		MatchTime.text = elapsedTime.ToString();
 			//string.Format ("elapsed: {0:0.000}", elapsedTime.ToString());
 
+
 		Health.text = "Health: " + myPlayer.GetComponent<NetworkPlayer>().Health.ToString();
+
+	
 		//Debug.Log(GetComponent<NetworkPlayer>().Health.ToString());
 		//Debug.Log (this.playerObject.MaxHealth);
 		//Debug.Log ("HP of " + NetworkPlayer.GetComponent<PhotonView>().owner + " is " + Health);

@@ -35,6 +35,7 @@ public class PunTeams : MonoBehaviour
         {
             PlayersPerTeam[(Team)enumVal] = new List<PhotonPlayer>();
         }
+
     }
 
 
