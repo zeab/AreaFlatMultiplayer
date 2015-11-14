@@ -81,9 +81,12 @@
  <Reference Include="UnityEditor.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
  </Reference>
+<<<<<<< HEAD
  <Reference Include="UnityEngine.Analytics">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
+=======
+>>>>>>> parent of 2fc02c4... Teams
  <Reference Include="Newtonsoft.Json">
  <HintPath>F:/Game Projects/Unity/AreaFlatMultiplayer/Assets/Photon Unity Networking/Editor/PhotonNetwork/Newtonsoft.Json.dll</HintPath>
  </Reference>

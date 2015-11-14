@@ -1,3 +1,7 @@
 Base path: C:/Program Files/Unity/Editor/Data
+<<<<<<< HEAD
 Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-2152
+=======
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-5972
+>>>>>>> parent of 2fc02c4... Teams
 Cmd: getPlatforms
