@@ -23,17 +23,22 @@ public class NetworkLobby : Photon.MonoBehaviour {
 
 	public void onCreateGameClick()
 	{
-		Application.LoadLevel ("level_01");
+
+
+
 
 		RoomOptions roomOptions = new RoomOptions();
 		roomOptions.maxPlayers = 4;
+		//SetRoundStartTime ();
 
 		PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, TypedLobby.Default);
 
 
+		Application.LoadLevel ("level_01");
+
+
 	}
-
-
+	
 
 }
 

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -6,6 +6,7 @@ public class NetworkPlayer : PlayerBase {
 
 	//sets the death explosion prefab
 	public GameObject ExplosionPrefab;
+	public GameObject RespawnPrefab;
 
 	public Slider m_HealthSlider; 
 	public Image m_FillHealthSlider;
@@ -25,8 +26,23 @@ public class NetworkPlayer : PlayerBase {
 	float rotLerpSmooth = 10f;
 
 	private int playerID;
+	private SpriteRenderer m_playerColor;
 
-	public float MaxHealth = 100f;
+	public GameObject HUDCanvas;
+
+	private float respawnTime = 3f;
+
+	//sets the max health as a read only variable
+	private float m_MaxHealth = 100f;
+	public float MaxHealth
+	{
+		get
+		{
+			return m_MaxHealth;
+		}
+	}
+
+
 	//sets up the health variables for networking goodness
 	float m_Health;
 	public float Health
@@ -35,8 +51,22 @@ public class NetworkPlayer : PlayerBase {
 		{
 			return m_Health;
 		}
+		set
+		{
+			m_Health = Health;
+		}
 	}
 
+
+	Color m_PlayerColor;
+	public Color PlayerColor
+	{
+		get
+		{
+			return m_PlayerColor;
+		}
+		
+	}
 
 	//playerID = GetComponentInParent<Player> ().GetComponent<PhotonView>().viewID;
 
@@ -47,7 +77,10 @@ public class NetworkPlayer : PlayerBase {
 		playerID = PhotonView.viewID;
 		m_Health = MaxHealth;
 		m_PlayerName.text = PhotonView.owner.name;
-		
+
+		m_playerColor = gameObject.GetComponentInChildren<SpriteRenderer> ();
+		m_playerColor.color = new Color(Random.value, Random.value, Random.value);
+
 		//Health = GetComponent<
 
 
@@ -61,10 +94,7 @@ public class NetworkPlayer : PlayerBase {
 		{
 			StartCoroutine("Alive");
 		}
-
-			
 	}
-	
 
 	void Update()
 	{
@@ -72,6 +102,33 @@ public class NetworkPlayer : PlayerBase {
 		SetHealthUI ();
 				
 	}
+
+
+
+
+	public void setColor(Color color)
+	{
+		color = m_playerColor.color;
+//		
+//		
+//		m_PlayerColor = m_playerColor.color;
+
+	}
+
+
+	void OnPhotonInstantiate( PhotonMessageInfo info )
+	{
+		//This method gets called right after a GameObject is created through PhotonNetwork.Instantiate
+		//The fifth parameter in PhotonNetwork.instantiate sets the instantiationData and every client
+		//can access them through the PhotonView. In our case we use this to send which team the ship
+		//belongs to. This methodology is very useful to send data that only has to be sent once.
+		
+		if( PhotonView.isMine == false )
+		{
+			setColor( (Color)PhotonView.instantiationData[ 0 ] );
+		}
+	}
+
 
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 	{
@@ -108,27 +165,39 @@ public class NetworkPlayer : PlayerBase {
 		}
 	}
 
+	
+	/// <summary>
+	/// Modifies the health. Neg numbers for -dmg and Pos numbers for +health
+	/// </summary>
+	/// <param name="damage">Damage.</param>
 
-
-
-
-
-//	public void OnProjectileHit( ProjectileBase projectile )
-//	{
-//		DealDamage( 10, projectile.Owner );
-//	}
-
-	//	public void DealDamage( float damage, NetworkPlayer damageDealer )
-
-	public void DealDamage( float damage )
+	public void ModifyHealth( float damage )
 	{
-		m_Health -= damage;
+
+		//this is so we dont over heal ourselves past our max health
+		if (m_Health + damage > MaxHealth)
+		{
+			m_Health = MaxHealth;
+		}
+		else
+		{
+			m_Health += damage;
+		}
+
+		if (m_Health <= 0)
+		{
+			//set Health to 0
+			m_Health = 0;
+			//despawn player()
+			PhotonView.RPC ("PlayerIsVisible", PhotonTargets.All, new object[] {false});
 
 
-		//Debug.Log (m_Health);
+			if (PhotonView.isMine)
+			{
+				GameObject.Find ("NetworkManager").GetComponent<NetworkManager> ().respawnTimer = respawnTime;
+			}
+		}
 
-		//Debug.Log ("HP of " + GetComponent<PhotonView>().owner + " is " + Health);
-		//OnHealthChanged( damageDealer );
 	}
 
 	private void SetHealthUI()
@@ -137,6 +206,108 @@ public class NetworkPlayer : PlayerBase {
 		m_FillHealthSlider.color = Color.Lerp (m_ZeroHealthColor, m_FullHealthColor, Health / MaxHealth);
 		//Debug.Log (Color.green);
 	}
+
+
+	[PunRPC]
+	private void PlayerIsVisible(bool visible)
+	{
+		//Disable all the sprites
+		SpriteRenderer[] renderers = GetComponentsInChildren<SpriteRenderer>();
+		for( int i = 0; i < renderers.Length; ++i )
+		{
+			renderers[ i ].enabled = visible;
+		}
+
+		//disable the collider and move/shoot scripts and the UI
+		GetComponent<CircleCollider2D> ().enabled = visible;
+		GetComponent<ShootOnAxisInput> ().enabled = visible;
+		GetComponent<MoveOnAxisInput> ().enabled = visible;
+		HUDCanvas.SetActive (visible);
+
+		CreateHitFx(ExplosionPrefab);
+	}
+
+
+	/// <summary>
+	/// Creates the hit fx. This creates the explosion prefab on death
+	/// </summary>
+	void CreateHitFx(GameObject FXPrefab)
+	{
+		Instantiate( FXPrefab, transform.position, transform.rotation );
+		//maybe start a coroutine on destory here for the partial object. 
+		//should really be doing object pooling but hey dont think this is really resource intensive
+	}
+
+
+
+
+
+	[PunRPC]
+	public void RespawnPlayer(Vector3 position, Quaternion rotation, int playerID )
+	{
+
+		if (GetComponent<PhotonView>().isMine && (GetComponent<PhotonView>().viewID == playerID))
+		{
+			
+			//Debug.Log("I get here");
+			m_Health = 100;
+			
+			transform.position = position;
+			transform.rotation = rotation;
+
+
+
+			bool visible = true;
+
+			//Disable all the sprites
+			SpriteRenderer[] renderers = GetComponentsInChildren<SpriteRenderer>();
+			for( int i = 0; i < renderers.Length; ++i )
+			{
+				renderers[ i ].enabled = visible;
+			}
+			
+			//disable the collider and move/shoot scripts and the UI
+			GetComponent<CircleCollider2D> ().enabled = visible;
+			GetComponent<ShootOnAxisInput> ().enabled = visible;
+			GetComponent<MoveOnAxisInput> ().enabled = visible;
+			HUDCanvas.SetActive (visible);
+			
+			
+		}
+		else
+		{
+
+			GameObject[] playerObjects = GameObject.FindGameObjectsWithTag( "Player" );
+			
+			for( int i = 0; i < playerObjects.Length; ++i )
+			{
+				if (playerObjects[ i ].GetComponent<NetworkPlayer>().GetComponent<PhotonView>().viewID == playerID)
+				{
+					SpriteRenderer[] renderers = playerObjects[i].GetComponentsInChildren<SpriteRenderer>();
+					
+					for( int k = 0; k < renderers.Length; ++k )
+					{
+						renderers[ k ].enabled = true;
+					}
+					//Debug.Log("Updating Score");
+					playerObjects[i].GetComponent<NetworkPlayer>().GetComponent<CircleCollider2D> ().enabled = true;
+					playerObjects[i].GetComponent<NetworkPlayer>().m_Health = playerObjects[i].GetComponent<NetworkPlayer>().MaxHealth;
+
+					bool visible = true;
+					HUDCanvas.SetActive (visible);
+
+
+				}
+			}
+		}
+
+		//create the respawn partiales
+		Instantiate( RespawnPrefab, position, rotation );
+	}
+
+
+
+
 
 
 

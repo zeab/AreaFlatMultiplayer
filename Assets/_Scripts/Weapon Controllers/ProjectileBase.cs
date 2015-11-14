@@ -99,7 +99,7 @@ public class ProjectileBase : MonoBehaviour
 	public void OnProjectileHit()
 	{
 		Destroy( gameObject );
-		CreateHitFx();
+		//CreateHitFx();
 	}
 
 	void OnTriggerEnter2D( Collider2D collision )
@@ -117,7 +117,7 @@ public class ProjectileBase : MonoBehaviour
 			{
 				//collision.GetComponent<Player>().GetComponent<PhotonView>().RPC("DealDamage", PhotonTargets.All, damage, myOwnerID);
 				//collision.GetComponent<NetworkPlayer>().GetComponent<PhotonView>().RPC("DealDamage", PhotonTargets.All, 10);
-				collision.GetComponent<NetworkPlayer>().DealDamage(10);
+				collision.GetComponent<NetworkPlayer>().ModifyHealth(-10);
 
 			}
 

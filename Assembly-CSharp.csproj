@@ -105,12 +105,8 @@
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SupportLogger.cs" />
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
      <Compile Include="Assets\_Scripts\Enemy Controllers\EnemyMover.cs" />
-     <Compile Include="Assets\_Scripts\Game Controllers\GamemodeBase.cs" />
-     <Compile Include="Assets\_Scripts\Game Controllers\GamemodeDeathmatch.cs" />
-     <Compile Include="Assets\_Scripts\Game Controllers\GamemodeManager.cs" />
      <Compile Include="Assets\_Scripts\General\HUDCanvasPropertys.cs" />
      <Compile Include="Assets\_Scripts\General\Helper.cs" />
-     <Compile Include="Assets\_Scripts\General\RoomProperty.cs" />
      <Compile Include="Assets\_Scripts\General\SpawnSpot.cs" />
      <Compile Include="Assets\_Scripts\General\loginFieldProperty.cs" />
      <Compile Include="Assets\_Scripts\General\test.cs" />

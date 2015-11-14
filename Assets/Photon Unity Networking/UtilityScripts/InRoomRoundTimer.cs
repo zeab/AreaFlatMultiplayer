@@ -31,6 +31,8 @@ public class InRoomRoundTimer : MonoBehaviour
         // time should be 0.0f but to make sure we detect it correctly, check for a very low value.
         if (PhotonNetwork.time < 0.0001f)
         {
+			Debug.Log("I happen");
+
             // we can only start the round when the time is available. let's check that in Update()
             startRoundWhenTimeIsSynced = true;
             return;
