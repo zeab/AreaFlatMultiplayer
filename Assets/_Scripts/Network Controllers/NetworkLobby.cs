@@ -8,7 +8,7 @@ public class NetworkLobby : Photon.MonoBehaviour {
 
 	public Text playerName;
 
-	public string roomName = "MyRoom1";
+	private string roomName = "MyRoom";
 
 	void Start ()
 	{

@@ -7,15 +7,11 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 public class PunPlayerScores : MonoBehaviour
 {
     public const string PlayerScoreProp = "score";
-
-
 }
-
 
 
 static class ScoreExtensions
 {
-
     public static void SetScore(this PhotonPlayer player, int newScore)
     {
         Hashtable score = new Hashtable();  // using PUN's implementation of Hashtable

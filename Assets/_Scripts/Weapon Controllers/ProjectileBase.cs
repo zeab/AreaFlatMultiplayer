@@ -99,7 +99,7 @@ public class ProjectileBase : MonoBehaviour
 	public void OnProjectileHit()
 	{
 		Destroy( gameObject );
-		CreateHitFx();
+		//CreateHitFx();
 	}
 
 	void OnTriggerEnter2D( Collider2D collision )

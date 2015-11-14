@@ -136,27 +136,22 @@ public class NetworkManager : MonoBehaviour {
 	void OnJoinedRoom()
 	{
 		SetRoundStartTime ();
-		SpawnMyPlayer (Team.None);
+		SpawnMyPlayer ();
 	}
 
-	void SpawnMyPlayer(Team team)
+	void SpawnMyPlayer()
 	{
-		object[] instantiationData = new object[] { (int)team } ;
-
 		SpawnSpot mySpwanSpot = spawnSpots [Random.Range (0, spawnSpots.Length)];
 
-		m_myPlayer = PhotonNetwork.Instantiate (playerPrefabName, mySpwanSpot.transform.position, mySpwanSpot.transform.rotation, 0, instantiationData);
+		m_myPlayer = PhotonNetwork.Instantiate (playerPrefabName, mySpwanSpot.transform.position, mySpwanSpot.transform.rotation, 0);
 
-		NetworkPlayer newPlayer = m_myPlayer.GetComponent<NetworkPlayer> ();
-		newPlayer.SetTeam (team);
+		//sets the player photon view owner name to the player prefab setting
+		PhotonNetwork.playerName = PlayerPrefs.GetString("Player Name");
 
-		//m_myPlayer.SetTeam (team);
 		//and set HUDCancas to this player object...?
 		GameObject HUD = GameObject.Find("MainHUDCanvas");
 		HUD.GetComponent<HUDCanvasPropertys> ().myPlayer = m_myPlayer;
-	
-		//sets the player photon view owner name to the player prefab setting
-		PhotonNetwork.playerName = PlayerPrefs.GetString("Player Name");
+
 
 	}
 
